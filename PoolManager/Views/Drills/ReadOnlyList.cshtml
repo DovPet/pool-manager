@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PoolManager.Models.Drill>
+@{
+    ViewBag.Title = "ReadOnlyList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Drills list</h2>
+
+
+<table id="drills" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Heading</th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var drill in Model)
+    {
+        <tr>
+
+                
+            <td>@drill.Heading</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#drills").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                      
+                    },
+                    {
+                        data: "genres.name"
+                    },
+                    
+                ]
+            });
+        });
+    </script>
+}

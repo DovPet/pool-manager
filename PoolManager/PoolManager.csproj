@@ -196,18 +196,50 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DrillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706071622133_FirstMigration.cs" />
+    <Compile Include="Migrations\201706071622133_FirstMigration.Designer.cs">
+      <DependentUpon>201706071622133_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706080830314_DrillModel.cs" />
+    <Compile Include="Migrations\201706080830314_DrillModel.Designer.cs">
+      <DependentUpon>201706080830314_DrillModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706080900493_DrillModelEdit.cs" />
+    <Compile Include="Migrations\201706080900493_DrillModelEdit.Designer.cs">
+      <DependentUpon>201706080900493_DrillModelEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706090956076_DrillSetMigration.cs" />
+    <Compile Include="Migrations\201706090956076_DrillSetMigration.Designer.cs">
+      <DependentUpon>201706090956076_DrillSetMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706090958360_DrillSetMigration2.cs" />
+    <Compile Include="Migrations\201706090958360_DrillSetMigration2.Designer.cs">
+      <DependentUpon>201706090958360_DrillSetMigration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706091037321_MessagesMigration.cs" />
+    <Compile Include="Migrations\201706091037321_MessagesMigration.Designer.cs">
+      <DependentUpon>201706091037321_MessagesMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Drill.cs" />
+    <Compile Include="Models\DrillSet.cs" />
+    <Compile Include="Models\DrillsInSet.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DrillsFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-readable.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -265,6 +297,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Drills\List.cshtml" />
+    <Content Include="Views\Drills\DrillsForm.cshtml" />
+    <Content Include="Views\Drills\ReadOnlyList.cshtml" />
+    <Content Include="Views\Drills\UsersList.cshtml" />
+    <Content Include="Views\Drills\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +313,26 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706071622133_FirstMigration.resx">
+      <DependentUpon>201706071622133_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706080830314_DrillModel.resx">
+      <DependentUpon>201706080830314_DrillModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706080900493_DrillModelEdit.resx">
+      <DependentUpon>201706080900493_DrillModelEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706090956076_DrillSetMigration.resx">
+      <DependentUpon>201706090956076_DrillSetMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706090958360_DrillSetMigration2.resx">
+      <DependentUpon>201706090958360_DrillSetMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706091037321_MessagesMigration.resx">
+      <DependentUpon>201706091037321_MessagesMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<PoolManager.Models.Drill>
+@{
+    ViewBag.Title = "UsersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Drills list</h2>
+
+<table id="drills" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Drill</th>
+           
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var drill in Model)
+    {
+        <tr>
+
+            <td>@Html.ActionLink(drill.Heading, "Details", "drills", new { id = drill.Id }, null)</td>
+               
+        </tr>
+    }
+    </tbody>
+</table>
