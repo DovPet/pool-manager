@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PoolManager.Models.DrillSet>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Drill sets list</h2>
+
+<input type="button" onclick="location.href='/drillSets/new';" value="New drill set" class="btn btn-primary" />
+<table id="drills" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Drill set</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var drillSet in Model)
+        {
+            <tr>
+
+                <td>@Html.ActionLink(drillSet.Heading, "Edit", "drillSets", new { id = drillSet.Id }, null)</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -217,6 +217,7 @@
     <Compile Include="Controllers\Api\DrillsController.cs" />
     <Compile Include="Controllers\Api\MessageController.cs" />
     <Compile Include="Controllers\DrillsController.cs" />
+    <Compile Include="Controllers\DrillSetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
@@ -276,6 +277,7 @@
     <Compile Include="Models\MessageTopic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\DrillSetsFormViewModel.cs" />
     <Compile Include="ViewModels\DrillsFormViewModel.cs" />
     <Compile Include="ViewModels\MessageFormViewModel.cs" />
   </ItemGroup>
@@ -520,7 +522,12 @@
     <Content Include="Views\Drills\Details.cshtml" />
     <Content Include="Views\Message\List.cshtml" />
     <Content Include="Views\Message\MessageForm.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Manage\SetFirstname.cshtml" />
+=======
+    <Content Include="Views\DrillSets\List.cshtml" />
+    <Content Include="Views\DrillSets\DrillSetsForm.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
