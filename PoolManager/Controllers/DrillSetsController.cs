@@ -48,7 +48,7 @@ namespace PoolManager.Controllers
         public ActionResult New()
         {
 
-            if (User.IsInRole("Admin"))
+            if (User.IsInRole("Admin") | User.IsInRole("User"))
             {
                 var viewModel = new DrillSetsFormViewModel();
 
@@ -58,34 +58,38 @@ namespace PoolManager.Controllers
             return HttpNotFound();
         }
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public ActionResult Save(DrillSet drillSet)
         {
-            if (!ModelState.IsValid)
+            if (User.IsInRole("Admin") | User.IsInRole("User"))
             {
-                var viewModel = new DrillSetsFormViewModel(drillSet);
+                if (!ModelState.IsValid)
+                {
+                    var viewModel = new DrillSetsFormViewModel(drillSet);
 
-                return View("DrillSetsForm", viewModel);
+                    return View("DrillSetsForm", viewModel);
+                }
+
+
+                if (drillSet.Id == 0)
+                    _context.DrillSets.Add(drillSet);
+                else
+                {
+                    var drillSetInDb = _context.DrillSets.Single(c => c.Id == drillSet.Id);
+
+                    //to update all properties
+                    //TryUpdateModel(customerInDb);
+
+                    drillSetInDb.Heading = drillSet.Heading;
+                    drillSetInDb.Description = drillSet.Description;
+
+                }
+
+                _context.SaveChanges();
+
+
+                return RedirectToAction("Index", "DrillSets");
             }
-
-            if (drillSet.Id == 0)
-                _context.DrillSets.Add(drillSet);
-            else
-            {
-                var drillSetInDb = _context.DrillSets.Single(c => c.Id == drillSet.Id);
-
-                //to update all properties
-                //TryUpdateModel(customerInDb);
-
-                drillSetInDb.Heading = drillSet.Heading;
-                drillSetInDb.Description = drillSet.Description;
-
-            }
-
-            _context.SaveChanges();
-
-
-            return RedirectToAction("Index", "DrillSets");
+            else return HttpNotFound();
         }
 
         public ActionResult Edit(int id)
