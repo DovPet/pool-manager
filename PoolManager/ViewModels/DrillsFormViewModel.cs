@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using PoolManager.Models;
 
 namespace PoolManager.ViewModels
@@ -16,6 +17,7 @@ namespace PoolManager.ViewModels
         public string Heading { get; set; }
 
         [Required]
+        [AllowHtml]
         public string Description { get; set; }
 
         public string Title

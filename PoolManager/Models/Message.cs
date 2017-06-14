@@ -3,26 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PoolManager.Models
 {
-    public enum MessageTopic
-    {
-        Drill_problem,
-        Technical_problem,
-        Suggestion
-    }
-
+    
     public class Message
     {
         public int Id { get; set; }
 
         [Required]
+        [AllowHtml]
         public string Text { get; set; }
 
         public DateTime? Date { get; set; }
 
-        [Required]
-        public MessageTopic Topic { get; set; }
+        public MessageTopic MessageTopic { get; set; }
+
+        [Display(Name = "Message Topic")]
+        public int MessageTopicId { get; set; }
     }
 }

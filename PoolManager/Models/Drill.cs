@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace PoolManager.Models
 {
@@ -19,6 +20,7 @@ namespace PoolManager.Models
         public string Heading { get; set; }
 
         [Required]
+        [AllowHtml]
         public string Description { get; set; }
 
         public ICollection<DrillsInSet> DrillsInSets { get; set; }

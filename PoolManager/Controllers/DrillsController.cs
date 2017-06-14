@@ -30,7 +30,7 @@ namespace PoolManager.Controllers
             {
                 return View("List",drills);
             }
-            if (User.IsInRole("SimpleUser"))
+            if (User.IsInRole("User"))
             {
                 return View("UsersList",drills);
             }
@@ -38,7 +38,7 @@ namespace PoolManager.Controllers
             return View("ReadOnlyList",drills);
 
         }
-
+        [Authorize(Roles = "User")]
         public ActionResult Details(int id)
         {
             var drill = _context.Drills.SingleOrDefault(c => c.Id == id);
@@ -48,16 +48,20 @@ namespace PoolManager.Controllers
             return View(drill);
         }
 
+       
         public ActionResult New()
         {
-            
-            var viewModel = new DrillsFormViewModel();
-         
+            if (User.IsInRole("Admin"))
+            {
+                var viewModel = new DrillsFormViewModel();
 
-            return View("DrillsForm", viewModel);
+
+                return View("DrillsForm", viewModel);
+            }
+            return HttpNotFound();
         }
-
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Save(Drill drill)
         {
             if (!ModelState.IsValid)
@@ -86,7 +90,7 @@ namespace PoolManager.Controllers
 
             return RedirectToAction("Index", "Drills");
         }
-
+        
         public ActionResult Edit(int id)
         {
             var movie = _context.Drills.SingleOrDefault(c => c.Id == id);

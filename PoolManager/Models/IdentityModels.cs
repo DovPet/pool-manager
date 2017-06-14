@@ -27,6 +27,7 @@ namespace PoolManager.Models
         public DbSet<DrillSet> DrillSets { get; set; }
         public DbSet<DrillsInSet> DrillsInSets { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<MessageTopic> MessageTopics { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

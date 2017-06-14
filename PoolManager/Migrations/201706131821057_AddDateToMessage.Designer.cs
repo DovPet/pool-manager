@@ -7,13 +7,13 @@ namespace PoolManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class MessagesMigration : IMigrationMetadata
+    public sealed partial class AddDateToMessage : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MessagesMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddDateToMessage));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706091037321_MessagesMigration"; }
+            get { return "201706131821057_AddDateToMessage"; }
         }
         
         string IMigrationMetadata.Source
