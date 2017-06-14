@@ -20,6 +20,8 @@ namespace PoolManager.ViewModels
         [AllowHtml]
         public string Description { get; set; }
 
+        public List<CheckBoxViewModel> DrillSets { get; set; }
+
         public string Title
         {
             get

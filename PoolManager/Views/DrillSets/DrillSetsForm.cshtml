@@ -34,6 +34,19 @@
         @Html.ValidationMessageFor(m => m.Description)
     </div>
 
+    <div class="form-group">
+        @Html.LabelFor(m => m.Drills)
+        @for (int i = 0; i < Model.Drills.Count(); i++)
+        {
+            @Html.EditorFor(m=>Model.Drills[i].Checked)
+            @Html.DisplayFor(m=>Model.Drills[i].Name)
+
+            @Html.HiddenFor(m=>Model.Drills[i].Name)
+            @Html.HiddenFor(m=>Model.Drills[i].Id)
+        }
+
+    </div>
+
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
 

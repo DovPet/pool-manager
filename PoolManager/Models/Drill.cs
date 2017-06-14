@@ -23,7 +23,7 @@ namespace PoolManager.Models
         [AllowHtml]
         public string Description { get; set; }
 
-        public ICollection<DrillsInSet> DrillsInSets { get; set; }
+        public virtual ICollection<DrillsInSet> DrillsInSets { get; set; }
 
         }
 }

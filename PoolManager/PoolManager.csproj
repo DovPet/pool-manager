@@ -272,6 +272,10 @@
     <Compile Include="Migrations\201706141550474_SessionAndStatistic.Designer.cs">
       <DependentUpon>201706141550474_SessionAndStatistic.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706141730371_DrillsInSetsFixing.cs" />
+    <Compile Include="Migrations\201706141730371_DrillsInSetsFixing.Designer.cs">
+      <DependentUpon>201706141730371_DrillsInSetsFixing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Statistic.cs" />
@@ -280,6 +284,7 @@
     <Compile Include="Models\DrillSet.cs" />
     <Compile Include="Models\DrillsInSet.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="ViewModels\CheckBoxViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\MessageTopic.cs" />
@@ -580,6 +585,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706141550474_SessionAndStatistic.resx">
       <DependentUpon>201706141550474_SessionAndStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141730371_DrillsInSetsFixing.resx">
+      <DependentUpon>201706141730371_DrillsInSetsFixing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

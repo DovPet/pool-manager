@@ -10,7 +10,11 @@ namespace PoolManager.Models
         public int Id { get; set; }
         public bool Completed { get; set; }
 
-        public Drill Drill { get; set; }
-        public DrillSet DrillSet { get; set; }
+        public int DrillId { get; set; }
+        public int DrillSetId { get; set; }
+
+
+        public virtual Drill Drill { get; set; }
+        public virtual DrillSet DrillSet { get; set; }
     }
 }

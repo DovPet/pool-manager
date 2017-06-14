@@ -1,4 +1,4 @@
-﻿@model PoolManager.Models.DrillSet
+﻿@model PoolManager.ViewModels.DrillSetsFormViewModel
 @{
     ViewBag.Title = "Details";
 }
@@ -6,4 +6,16 @@
 <h2>@Model.Heading</h2>
 
 
+<dt>Drills: </dt>
+<dd>
+    @foreach (var item in Model.Drills)
+    {
+        if (item.Checked)
+        {
+            <li> @item.Name</li>
+        }
+    }
+</dd>
+
 @Html.Raw(Model.Description)
+
