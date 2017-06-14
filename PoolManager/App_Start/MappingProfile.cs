@@ -16,6 +16,8 @@ namespace PoolManager.App_Start
             Mapper.CreateMap<MessageDto, Message>();
             Mapper.CreateMap<Drill, DrillsDto>();
             Mapper.CreateMap<DrillsDto, Drill>();
+            Mapper.CreateMap<DrillSetsDto, DrillSet>();
+            Mapper.CreateMap<DrillSet, DrillSetsDto>();
         }
     }
 }

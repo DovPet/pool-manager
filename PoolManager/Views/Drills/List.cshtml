@@ -40,7 +40,7 @@
             $("#drills").on("click", ".js-delete", function () {
                 var button = $(this);
 
-                bootbox.confirm("Are you sure you want to delete this message?", function (result) {
+                bootbox.confirm("Are you sure you want to delete this drill?", function (result) {
                     if (result) {
                         $.ajax({
                             url: "/api/drills/" + button.attr("data-drill-id"),

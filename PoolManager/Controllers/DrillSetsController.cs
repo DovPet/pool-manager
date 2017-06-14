@@ -21,7 +21,7 @@ namespace PoolManager.Controllers
         {
             _context.Dispose();
         }
-        [AllowAnonymous]
+        
         public ViewResult Index()
         {
             var drillSets = _context.DrillSets.ToList();
@@ -30,12 +30,8 @@ namespace PoolManager.Controllers
             {
                 return View("List", drillSets);
             }
-            if (User.IsInRole("User"))
-            {
+           
                 return View("UsersList", drillSets);
-            }
-
-            return View("ReadOnlyList", drillSets);
 
         }
         [Authorize(Roles = "User")]

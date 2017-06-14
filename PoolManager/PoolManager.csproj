@@ -215,6 +215,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\DrillsController.cs" />
+    <Compile Include="Controllers\Api\DrillSetsController.cs" />
     <Compile Include="Controllers\Api\MessageController.cs" />
     <Compile Include="Controllers\DrillsController.cs" />
     <Compile Include="Controllers\DrillSetsController.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Dtos\DrillsDto.cs" />
+    <Compile Include="Dtos\DrillSetsDto.cs" />
     <Compile Include="Dtos\MessageDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -525,6 +527,8 @@
     <Content Include="Views\Manage\SetFirstname.cshtml" />
     <Content Include="Views\DrillSets\List.cshtml" />
     <Content Include="Views\DrillSets\DrillSetsForm.cshtml" />
+    <Content Include="Views\DrillSets\UsersList.cshtml" />
+    <Content Include="Views\DrillSets\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

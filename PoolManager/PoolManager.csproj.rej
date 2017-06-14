@@ -1,0 +1,14 @@
+diff a/PoolManager/PoolManager.csproj b/PoolManager/PoolManager.csproj	(rejected hunks)
+@@ -522,12 +522,9 @@
+     <Content Include="Views\Drills\Details.cshtml" />
+     <Content Include="Views\Message\List.cshtml" />
+     <Content Include="Views\Message\MessageForm.cshtml" />
+-<<<<<<< HEAD
+     <Content Include="Views\Manage\SetFirstname.cshtml" />
+-=======
+     <Content Include="Views\DrillSets\List.cshtml" />
+     <Content Include="Views\DrillSets\DrillSetsForm.cshtml" />
+->>>>>>> origin/master
+   </ItemGroup>
+   <ItemGroup>
+     <Folder Include="App_Data\" />
