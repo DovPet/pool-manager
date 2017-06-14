@@ -34,19 +34,19 @@ namespace PoolManager.Controllers.Api
         }
 
         [HttpPost]
-        public MessageDto CreateMessage(MessageDto messageDto)
+        public MessageDto CreateMessage(MessageDto drillsDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
-            var message = Mapper.Map<MessageDto, Message>(messageDto);
+            var message = Mapper.Map<MessageDto, Message>(drillsDto);
 
             _context.Messages.Add(message);
             _context.SaveChanges();
 
-            messageDto.Id = message.Id;
+            drillsDto.Id = message.Id;
 
-            return messageDto;
+            return drillsDto;
         }
        
         [HttpDelete]

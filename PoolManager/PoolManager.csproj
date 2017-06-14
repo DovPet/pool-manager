@@ -214,11 +214,13 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\DrillsController.cs" />
     <Compile Include="Controllers\Api\MessageController.cs" />
     <Compile Include="Controllers\DrillsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Dtos\DrillsDto.cs" />
     <Compile Include="Dtos\MessageDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -259,13 +261,17 @@
     <Compile Include="Migrations\201706140930419_SeedUsers.Designer.cs">
       <DependentUpon>201706140930419_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706141115443_EditingUsers.cs" />
+    <Compile Include="Migrations\201706141115443_EditingUsers.Designer.cs">
+      <DependentUpon>201706141115443_EditingUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Drill.cs" />
     <Compile Include="Models\DrillSet.cs" />
     <Compile Include="Models\DrillsInSet.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\MessageTopic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -514,6 +520,7 @@
     <Content Include="Views\Drills\Details.cshtml" />
     <Content Include="Views\Message\List.cshtml" />
     <Content Include="Views\Message\MessageForm.cshtml" />
+    <Content Include="Views\Manage\SetFirstname.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -553,6 +560,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706140930419_SeedUsers.resx">
       <DependentUpon>201706140930419_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141115443_EditingUsers.resx">
+      <DependentUpon>201706141115443_EditingUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

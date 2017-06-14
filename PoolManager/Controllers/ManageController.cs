@@ -276,6 +276,7 @@ namespace PoolManager.Controllers
             return View(model);
         }
 
+        
         //
         // GET: /Manage/ManageLogins
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)

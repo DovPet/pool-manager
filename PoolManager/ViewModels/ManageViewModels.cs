@@ -8,6 +8,8 @@ namespace PoolManager.Models
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }
+        public bool HasFirstname { get; set; }
+        public bool HasLastname { get; set; }
         public IList<UserLoginInfo> Logins { get; set; }
         public string PhoneNumber { get; set; }
         public bool TwoFactor { get; set; }
@@ -38,6 +40,15 @@ namespace PoolManager.Models
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
     }
+
+    public class SetFirstnameViewModel
+    {
+        
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]      
+        public string Firstname { get; set; }
+
+    }
+
 
     public class ChangePasswordViewModel
     {

@@ -10,19 +10,48 @@
 <input type="button" onclick="location.href='/drills/new';" value="New drill" class="btn btn-primary" />
 <table id="drills" class="table table-bordered table-hover">
     <thead>
-        <tr>
-            <th>Drill</th>
+    <tr>
+        <th>Drill</th>
+        <th>Action</th>
            
-        </tr>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var drill in Model)
-        {
-            <tr>
+    @foreach (var drill in Model)
+    {
+        <tr>
 
-                <td>@Html.ActionLink(drill.Heading, "Edit", "drills", new { id = drill.Id }, null)</td>
-               
-            </tr>
-        }
+            <td>@Html.ActionLink(drill.Heading, "Edit", "drills", new { id = drill.Id }, null)</td>
+            <td>
+                <button class="js-delete btn btn-link" data-drill-id="@drill.Id" >Delete </button>
+
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            var table = $("#drills").DataTable();
+
+            $("#drills").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this message?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/drills/" + button.attr("data-drill-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

@@ -13,6 +13,7 @@ namespace PoolManager.ViewModels
     {
         DateTime localDate = DateTime.Now;
         public IEnumerable<MessageTopic> MessageTopics { get; set; }
+        public Message Message { get; set; }
         public int Id { get; set; }
 
         [Required]

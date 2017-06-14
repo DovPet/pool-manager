@@ -48,7 +48,11 @@ namespace PoolManager.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new MessageFormViewModel(message);
+                var viewModel = new MessageFormViewModel
+                {
+                    Message = message,
+                    MessageTopics = _context.MessageTopics.ToList()
+                };
 
                 return View("MessageForm", viewModel);
             }

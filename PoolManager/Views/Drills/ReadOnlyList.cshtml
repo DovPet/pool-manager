@@ -26,26 +26,14 @@
     </tbody>
 </table>
 
+
 @section scripts
 {
     <script>
-        $(document).ready(function () {
-            var table = $("#drills").DataTable({
-                ajax: {
-                    url: "/api/movies",
-                    dataSrc: ""
-                },
-                columns: [
-                    {
-                        data: "name",
-                      
-                    },
-                    {
-                        data: "genres.name"
-                    },
-                    
-                ]
-            });
+        $(document).ready(function() {
+            var table = $("#drills").DataTable();
+
+
         });
     </script>
 }

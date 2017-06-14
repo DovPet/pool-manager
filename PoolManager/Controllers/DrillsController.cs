@@ -93,10 +93,10 @@ namespace PoolManager.Controllers
         
         public ActionResult Edit(int id)
         {
-            var movie = _context.Drills.SingleOrDefault(c => c.Id == id);
-            if (movie == null)
+            var drill = _context.Drills.SingleOrDefault(c => c.Id == id);
+            if (drill == null)
                 return HttpNotFound();
-            var viewModel = new DrillsFormViewModel(movie);
+            var viewModel = new DrillsFormViewModel(drill);
             
             return View("DrillsForm", viewModel);
         }

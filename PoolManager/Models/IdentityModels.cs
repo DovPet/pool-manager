@@ -11,7 +11,8 @@ namespace PoolManager.Models
     public class ApplicationUser : IdentityUser
     {
        public ICollection<Message> Messages { get; set; }
-
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
