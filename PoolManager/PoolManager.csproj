@@ -268,7 +268,13 @@
     <Compile Include="Migrations\201706141115443_EditingUsers.Designer.cs">
       <DependentUpon>201706141115443_EditingUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706141550474_SessionAndStatistic.cs" />
+    <Compile Include="Migrations\201706141550474_SessionAndStatistic.Designer.cs">
+      <DependentUpon>201706141550474_SessionAndStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\Statistic.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\Drill.cs" />
     <Compile Include="Models\DrillSet.cs" />
@@ -571,6 +577,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706141115443_EditingUsers.resx">
       <DependentUpon>201706141115443_EditingUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706141550474_SessionAndStatistic.resx">
+      <DependentUpon>201706141550474_SessionAndStatistic.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

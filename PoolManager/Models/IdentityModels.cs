@@ -11,6 +11,7 @@ namespace PoolManager.Models
     public class ApplicationUser : IdentityUser
     {
        public ICollection<Message> Messages { get; set; }
+       public ICollection<Statistic> Statistics { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
@@ -29,6 +30,8 @@ namespace PoolManager.Models
         public DbSet<DrillsInSet> DrillsInSets { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<MessageTopic> MessageTopics { get; set; }
+        public DbSet<Session> Sessions { get; set; }
+        public DbSet<Statistic> Statistics { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
