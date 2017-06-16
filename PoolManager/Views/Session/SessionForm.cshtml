@@ -1,0 +1,55 @@
+﻿@model PoolManager.ViewModels.SessionFormViewModel
+
+@{
+    ViewBag.Title = "SessionForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Session"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Date)
+        @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Date)
+
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Heading)
+        @Html.TextBoxFor(m => m.Heading, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Heading)
+    </div>
+    <div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.DrillSetId)
+            @Html.DropDownListFor(m => m.DrillSetId, new SelectList(Model.DrillSets, "Id", "Heading"), "Select Drill Set", new {@class = "form-control"})
+
+        </div>
+
+
+    </div>
+
+
+    if (Model.Title == "Edit Session")
+                {
+         <div class="form-group">
+             @Html.LabelFor(m => m.Completed)
+             @Html.CheckBoxFor(m => m.Completed, new {@class = "checkbox"})
+             @Html.ValidationMessageFor(m => m.Completed)
+         </div>
+    }
+
+
+
+    @Html.HiddenFor(m => m.ApplicationUser_Id)
+    
+
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+
+}

@@ -23,7 +23,7 @@ namespace PoolManager.Models
 
         public int DrillSetsFailed { get; set; }
 
-       public IEnumerable<Session> Sessions { get; set; }
+        public IEnumerable<Session> Sessions { get; set; }
 
         public IEnumerable<DrillSet> DrillSets { get; set; }
     }

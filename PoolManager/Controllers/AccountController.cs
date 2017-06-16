@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -13,7 +17,7 @@ using PoolManager.Models;
 
 namespace PoolManager.Controllers
 {
-    [Authorize]
+    [System.Web.Mvc.Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -22,7 +26,7 @@ namespace PoolManager.Controllers
         public AccountController()
         {
         }
-
+       
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
@@ -53,9 +57,50 @@ namespace PoolManager.Controllers
             }
         }
 
+        //  public ActionResult UserManagement()
+        // {
+        //      return View("UsersList");
+        //  }
+        [System.Web.Mvc.Authorize(Roles = "Admin")]
+        public ActionResult UserManagement()
+        {
+           var viewModels= new List<UserListViewModel>() ;
+            using (var context = new IdentityDbContext())
+            {
+
+                viewModels =
+                    context.Users
+                        .Select(u =>
+                            new UserListViewModel
+                            {
+                                UserID = u.Id,
+                                UserName = u.UserName,
+                                Email = u.Email
+                            }
+                        ).ToList();
+            }
+
+            return View("UsersList",viewModels);
+        }
+            
+        [System.Web.Mvc.HttpDelete]
+        public ActionResult DeleteUser(string id)
+        {
+            using (var _context = new IdentityDbContext())
+            {
+                var userInDb = _context.Users.SingleOrDefault(c=> c.Id == id);
+                Console.WriteLine(userInDb);
+                if (userInDb == null)
+                    throw new HttpResponseException(HttpStatusCode.NotFound);
+                _context.Users.Remove(userInDb);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("UserManagement");
+        }
+
         //
         // GET: /Account/Login
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
@@ -64,8 +109,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/Login
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
@@ -94,7 +139,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/VerifyCode
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
             // Require that the user has already logged in via username/password or external login
@@ -107,8 +152,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/VerifyCode
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
@@ -137,7 +182,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public ActionResult Register()
         {
             return View();
@@ -145,8 +190,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -181,7 +226,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/ConfirmEmail
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
             if (userId == null || code == null)
@@ -194,7 +239,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/ForgotPassword
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public ActionResult ForgotPassword()
         {
             return View();
@@ -202,8 +247,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/ForgotPassword
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -230,7 +275,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/ForgotPasswordConfirmation
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
             return View();
@@ -238,7 +283,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/ResetPassword
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
             return code == null ? View("Error") : View();
@@ -246,8 +291,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/ResetPassword
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
@@ -272,7 +317,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
             return View();
@@ -280,8 +325,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/ExternalLogin
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
@@ -291,7 +336,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/SendCode
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
             var userId = await SignInManager.GetVerifiedUserIdAsync();
@@ -306,8 +351,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/SendCode
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
@@ -326,7 +371,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/ExternalLoginCallback
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
@@ -356,8 +401,8 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/ExternalLoginConfirmation
-        [HttpPost]
-        [AllowAnonymous]
+        [System.Web.Mvc.HttpPost]
+        [System.Web.Mvc.AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
@@ -394,7 +439,7 @@ namespace PoolManager.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
+        [System.Web.Mvc.HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
@@ -404,7 +449,7 @@ namespace PoolManager.Controllers
 
         //
         // GET: /Account/ExternalLoginFailure
-        [AllowAnonymous]
+        [System.Web.Mvc.AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
             return View();
