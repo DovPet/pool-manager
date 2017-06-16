@@ -293,6 +293,14 @@
     <Compile Include="Migrations\201706161354243_SessionFixes2.Designer.cs">
       <DependentUpon>201706161354243_SessionFixes2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706161459146_sessionUserFixing.cs" />
+    <Compile Include="Migrations\201706161459146_sessionUserFixing.Designer.cs">
+      <DependentUpon>201706161459146_sessionUserFixing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706161603057_sessionUserFixing1.cs" />
+    <Compile Include="Migrations\201706161603057_sessionUserFixing1.Designer.cs">
+      <DependentUpon>201706161603057_sessionUserFixing1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Statistic.cs" />
@@ -622,6 +630,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706161354243_SessionFixes2.resx">
       <DependentUpon>201706161354243_SessionFixes2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706161459146_sessionUserFixing.resx">
+      <DependentUpon>201706161459146_sessionUserFixing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706161603057_sessionUserFixing1.resx">
+      <DependentUpon>201706161603057_sessionUserFixing1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

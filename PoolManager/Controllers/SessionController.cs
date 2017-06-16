@@ -77,6 +77,7 @@ namespace PoolManager.Controllers
                 sessionInDb.Date = session.Date;
                 sessionInDb.Heading = session.Heading;
                 sessionInDb.DrillSetId = session.DrillSetId;
+                
 
             }
 

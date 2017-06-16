@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+using System.Security.Principal;
 using PoolManager.Models;
 
 namespace PoolManager.ViewModels
@@ -40,6 +45,7 @@ namespace PoolManager.ViewModels
         public SessionFormViewModel()
         {
             Id = 0;
+            
         }
         public SessionFormViewModel(Session session)
         {

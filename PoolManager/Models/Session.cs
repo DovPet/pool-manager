@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PoolManager.Models
 {
@@ -27,5 +28,10 @@ namespace PoolManager.Models
         public virtual DrillSet DrillSet { get; set; }
         [Required]
         public int DrillSetId { get; set; }
+
+        public virtual IEnumerable<ApplicationUser> AspNetUsers { get; set; }
+        [Required]
+        [StringLength(128)]
+        public string ApplicationUserId { get; set; }
     }
 }

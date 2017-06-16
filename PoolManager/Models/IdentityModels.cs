@@ -12,7 +12,8 @@ namespace PoolManager.Models
     {
        public ICollection<Message> Messages { get; set; }
        public ICollection<Statistic> Statistics { get; set; }
-       public ICollection<Session> Sessions { get; set; }
+        
+       
         public string Firstname { get; set; }
         public string Lastname { get; set; }
 
