@@ -224,6 +224,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
     <Compile Include="Dtos\DrillsDto.cs" />
     <Compile Include="Dtos\DrillSetsDto.cs" />
     <Compile Include="Dtos\MessageDto.cs" />
@@ -302,6 +303,10 @@
     <Compile Include="Migrations\201706161603057_sessionUserFixing1.cs" />
     <Compile Include="Migrations\201706161603057_sessionUserFixing1.Designer.cs">
       <DependentUpon>201706161603057_sessionUserFixing1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706181516195_StatisticsFixing.cs" />
+    <Compile Include="Migrations\201706181516195_StatisticsFixing.Designer.cs">
+      <DependentUpon>201706181516195_StatisticsFixing.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Session.cs" />
@@ -577,6 +582,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Statistics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -640,6 +646,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706161603057_sessionUserFixing1.resx">
       <DependentUpon>201706161603057_sessionUserFixing1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706181516195_StatisticsFixing.resx">
+      <DependentUpon>201706181516195_StatisticsFixing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
