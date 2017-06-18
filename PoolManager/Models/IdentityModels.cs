@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -11,9 +13,12 @@ namespace PoolManager.Models
     public class ApplicationUser : IdentityUser
     {
        public ICollection<Message> Messages { get; set; }
-       public ICollection<Statistic> Statistics { get; set; }
-        
-       
+        [ForeignKey("SessionsId")]
+        public virtual IEnumerable<Session> Sessions { get; set; }
+
+       [Required]
+       public int? SessionsId { get; set; }
+
         public string Firstname { get; set; }
         public string Lastname { get; set; }
 

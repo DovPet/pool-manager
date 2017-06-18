@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
@@ -23,8 +24,11 @@ namespace PoolManager.Models
 
         public int DrillSetsFailed { get; set; }
 
-        public IEnumerable<Session> Sessions { get; set; }
+        [ForeignKey("ApplicationUserId")]
+        public virtual IEnumerable<ApplicationUser> AspNetUsers { get; set; }
+        [Required]
+        [StringLength(128)]
+        public string ApplicationUserId { get; set; }
 
-        public IEnumerable<DrillSet> DrillSets { get; set; }
     }
 }
