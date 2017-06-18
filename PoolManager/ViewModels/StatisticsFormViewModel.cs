@@ -38,7 +38,7 @@ namespace PoolManager.ViewModels
         {
             Id = 0;
             ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-            StartDate = dt;
+            StartDate = localDate;
             SetsDone = 0;
             DrillsDone = 0;
             DrillsFailed = 0;
