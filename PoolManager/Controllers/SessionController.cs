@@ -4,6 +4,7 @@ using System.Linq;
 using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using PoolManager.Models;
 using PoolManager.ViewModels;
 
@@ -61,7 +62,10 @@ namespace PoolManager.Controllers
         {
             if (!ModelState.IsValid)
             {
-                var viewModel = new SessionFormViewModel(session);
+                var viewModel = new SessionFormViewModel(session)
+                {
+                    DrillSets = _context.DrillSets.ToList()
+                };
 
                 return View("SessionForm", viewModel);
             }
@@ -73,12 +77,12 @@ namespace PoolManager.Controllers
                 var sessionInDb = _context.Sessions.Single(c => c.Id == session.Id);
 
                 //to update all properties
-                //TryUpdateModel(customerInDb);
+                //TryUpdateModel(sessionInDb);
                 sessionInDb.Date = session.Date;
                 sessionInDb.Heading = session.Heading;
                 sessionInDb.DrillSetId = session.DrillSetId;
-                
-
+                sessionInDb.Completed = session.Completed;
+                sessionInDb.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             }
 
             _context.SaveChanges();
@@ -86,6 +90,7 @@ namespace PoolManager.Controllers
 
             return RedirectToAction("Index", "Session");
         }
+
         [Authorize(Roles = "User")]
         public ActionResult Edit(int id)
         {

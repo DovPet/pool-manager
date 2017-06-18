@@ -22,7 +22,7 @@ namespace PoolManager.ViewModels
         [Required]
         public string Heading { get; set; }
 
-        public string ApplicationUser_Id { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public bool Completed { get; set; }
 
@@ -45,16 +45,18 @@ namespace PoolManager.ViewModels
         public SessionFormViewModel()
         {
             Id = 0;
-            
+            ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
+
         }
+
         public SessionFormViewModel(Session session)
         {
             Id = session.Id;
             Date = session.Date;
             Heading = session.Heading;
-            Completed = session.Completed;
             DrillSetId = session.DrillSetId;
-
+            Completed = session.Completed;           
+            ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
 
         }
     }

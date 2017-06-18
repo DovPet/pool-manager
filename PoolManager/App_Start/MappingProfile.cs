@@ -18,6 +18,8 @@ namespace PoolManager.App_Start
             Mapper.CreateMap<DrillsDto, Drill>();
             Mapper.CreateMap<DrillSetsDto, DrillSet>();
             Mapper.CreateMap<DrillSet, DrillSetsDto>();
+            Mapper.CreateMap<Session, SessionDto>();
+            Mapper.CreateMap<SessionDto, Session>();
         }
     }
 }

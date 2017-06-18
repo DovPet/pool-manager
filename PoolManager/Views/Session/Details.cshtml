@@ -1,7 +1,22 @@
-﻿
+﻿@model PoolManager.Models.Session
+
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>@Model.Heading</h2>
 
+<ul>
+    <li>@Html.ActionLink(@Model.DrillSet.Heading, "Details", "drillsets", new { id = @Model.DrillSet.Id }, null)</li>
+    <li>Date: @Model.Date</li>
+    @if (@Model.Completed == true)
+    {
+        <li>Status: Completed</li>
+    }
+    else
+    {
+        <li>Not completed</li>
+    }
+
+</ul>

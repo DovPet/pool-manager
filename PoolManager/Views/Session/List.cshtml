@@ -1,7 +1,70 @@
-﻿
+﻿@model IEnumerable<PoolManager.Models.Session>
+
 @{
     ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>List</h2>
+<h2>Sessions List</h2>
+<input type="button" onclick="location.href='/session/new';" value="New session" class="btn btn-primary" />
+<table id="session" class="table table-bordered table-hover">
+    <thead>
+    <tr>
+        <th>Heading</th>
+        <th>Date</th>
+        <th>Completed</th>
+        <th>Actions</th>
 
+
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var session in Model)
+        {
+            <tr>
+
+                <td>@Html.ActionLink(session.Heading, "Edit", "Session", new { id = session.Id }, null)</td>
+                <td>@session.Date</td>
+                @if (session.Completed == true)
+                {
+                    <td>Completed</td>
+                }
+                else
+                {   
+                    <td>Not completed</td>
+                }
+                <td>
+                    @Html.ActionLink("Details", "Details", "Session", new { id = session.Id }, null)
+                    <button class="js-delete btn btn-link" data-session-id="@session.Id">Delete </button>
+
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            var table = $("#session").DataTable();
+
+            $("#session").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this session?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/session/" + button.attr("data-session-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

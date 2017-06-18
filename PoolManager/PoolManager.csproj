@@ -217,6 +217,7 @@
     <Compile Include="Controllers\Api\DrillsController.cs" />
     <Compile Include="Controllers\Api\DrillSetsController.cs" />
     <Compile Include="Controllers\Api\MessageController.cs" />
+    <Compile Include="Controllers\Api\SessionController.cs" />
     <Compile Include="Controllers\DrillsController.cs" />
     <Compile Include="Controllers\DrillSetsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -226,6 +227,7 @@
     <Compile Include="Dtos\DrillsDto.cs" />
     <Compile Include="Dtos\DrillSetsDto.cs" />
     <Compile Include="Dtos\MessageDto.cs" />
+    <Compile Include="Dtos\SessionDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

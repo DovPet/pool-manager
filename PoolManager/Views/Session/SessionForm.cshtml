@@ -10,8 +10,10 @@
 @using (Html.BeginForm("Save", "Session"))
 {
     <div class="form-group">
+        
         @Html.LabelFor(m => m.Date)
-        @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+        e.g. 2017-06-19 10:00:00
+        @Html.TextBoxFor(m => m.Date, new {@class = "form-control"})
         @Html.ValidationMessageFor(m => m.Date)
 
     </div>
@@ -40,13 +42,11 @@
              @Html.ValidationMessageFor(m => m.Completed)
          </div>
     }
+        
 
 
-
-    @Html.HiddenFor(m => m.ApplicationUser_Id)
+    @Html.HiddenFor(m => m.ApplicationUserId)
     
-
-
     @Html.HiddenFor(m => m.Id)
     @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
