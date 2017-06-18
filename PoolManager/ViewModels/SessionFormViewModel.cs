@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -26,13 +27,13 @@ namespace PoolManager.ViewModels
 
         public bool Completed { get; set; }
 
-        public int StatisticsId { get; set; }
+        
         public virtual IEnumerable<DrillSet> DrillSets { get; set; }
         [Display(Name = "Drill Set")]
         public int DrillSetId { get; set; }
 
         public virtual ICollection<Statistic> Statistics { get; set; }
-
+        public int? StatisticsId { get; set; }
 
         public string Title
         {
@@ -46,7 +47,7 @@ namespace PoolManager.ViewModels
         {
             Id = 0;
             ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
-
+            
         }
 
         public SessionFormViewModel(Session session)
@@ -55,9 +56,11 @@ namespace PoolManager.ViewModels
             Date = session.Date;
             Heading = session.Heading;
             DrillSetId = session.DrillSetId;
-            Completed = session.Completed;           
+            Completed = session.Completed;
+            StatisticsId = session.StatisticsId;
             ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
 
         }
+
     }
 }

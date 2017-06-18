@@ -1,0 +1,17 @@
+﻿@model PoolManager.ViewModels.StatisticsFormViewModel
+
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New</h2>
+@using (Html.BeginForm("Save", "Statistics"))
+{
+    @Html.HiddenFor(m => m.ApplicationUserId)
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-primary">Create statistics</button>
+}

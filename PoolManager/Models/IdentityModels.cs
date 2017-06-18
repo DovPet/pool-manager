@@ -16,8 +16,7 @@ namespace PoolManager.Models
         [ForeignKey("SessionsId")]
         public virtual IEnumerable<Session> Sessions { get; set; }
 
-       [Required]
-       public int? SessionsId { get; set; }
+        public int? SessionsId { get; set; }
 
         public string Firstname { get; set; }
         public string Lastname { get; set; }

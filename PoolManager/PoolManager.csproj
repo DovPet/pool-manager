@@ -308,6 +308,18 @@
     <Compile Include="Migrations\201706181516195_StatisticsFixing.Designer.cs">
       <DependentUpon>201706181516195_StatisticsFixing.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706181816525_StatisticsDateFix.cs" />
+    <Compile Include="Migrations\201706181816525_StatisticsDateFix.Designer.cs">
+      <DependentUpon>201706181816525_StatisticsDateFix.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706181841090_RegisterFixing.cs" />
+    <Compile Include="Migrations\201706181841090_RegisterFixing.Designer.cs">
+      <DependentUpon>201706181841090_RegisterFixing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706181848071_SessionRepairing.cs" />
+    <Compile Include="Migrations\201706181848071_SessionRepairing.Designer.cs">
+      <DependentUpon>201706181848071_SessionRepairing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Session.cs" />
     <Compile Include="Models\Statistic.cs" />
@@ -326,6 +338,7 @@
     <Compile Include="ViewModels\DrillsFormViewModel.cs" />
     <Compile Include="ViewModels\MessageFormViewModel.cs" />
     <Compile Include="ViewModels\SessionFormViewModel.cs" />
+    <Compile Include="ViewModels\StatisticsFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-readable.css" />
@@ -577,10 +590,12 @@
     <Content Include="Views\Session\List.cshtml" />
     <Content Include="Views\Session\Details.cshtml" />
     <Content Include="Views\Session\SessionForm.cshtml" />
+    <Content Include="Views\Statistics\Index.cshtml" />
+    <Content Include="Views\Statistics\Details.cshtml" />
+    <Content Include="Views\Statistics\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Statistics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -647,6 +662,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706181516195_StatisticsFixing.resx">
       <DependentUpon>201706181516195_StatisticsFixing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706181816525_StatisticsDateFix.resx">
+      <DependentUpon>201706181816525_StatisticsDateFix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706181841090_RegisterFixing.resx">
+      <DependentUpon>201706181841090_RegisterFixing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706181848071_SessionRepairing.resx">
+      <DependentUpon>201706181848071_SessionRepairing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

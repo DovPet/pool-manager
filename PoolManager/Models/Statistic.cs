@@ -11,8 +11,8 @@ namespace PoolManager.Models
     {
 
         public int Id { get; set; }
-
-        public DateTime StartDate { get; set; }
+        [Column(TypeName = "datetime2")]
+        public DateTime? StartDate { get; set; }
 
         public DateTime FinishDate { get; set; }
 

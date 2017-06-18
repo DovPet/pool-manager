@@ -31,13 +31,10 @@
                     }
                     else if (User.IsInRole("User"))
                     {
-                        <li>@Html.ActionLink("Home", "", "Drills")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Message", "New", "Message")</li>
                         <li>@Html.ActionLink("Drill Sets", "", "DrillSets")</li>
                         <li>@Html.ActionLink("Sessions", "", "Session")</li>
                         <li>@Html.ActionLink("Manage Info","", "Manage")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     }
                     else
                     {

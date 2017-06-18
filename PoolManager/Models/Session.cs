@@ -18,14 +18,13 @@ namespace PoolManager.Models
 
         [Required]
         public string Heading { get; set; }
-
-       
+        
         [Required]
         public bool Completed { get; set; }
 
         [ForeignKey("StatisticsId")]
         public virtual IEnumerable<Statistic> Statistics { get; set; }
-        [Required]
+        
         public virtual int? StatisticsId { get; set; }
 
         public virtual DrillSet DrillSet { get; set; }

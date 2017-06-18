@@ -1,0 +1,18 @@
+﻿@model PoolManager.Models.Statistic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+    @Html.ActionLink("Update", "Save", "Statistics", new { id = @Model.Id }, null)
+
+
+    @Html.HiddenFor(m => m.ApplicationUserId)
+    
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    
+}

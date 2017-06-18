@@ -56,6 +56,7 @@ namespace PoolManager.Controllers
             return View("SessionForm", viewModel);
             
         }
+
         [HttpPost]
         [Authorize(Roles = "User")]
         public ActionResult Save(Session session)
@@ -82,6 +83,7 @@ namespace PoolManager.Controllers
                 sessionInDb.Heading = session.Heading;
                 sessionInDb.DrillSetId = session.DrillSetId;
                 sessionInDb.Completed = session.Completed;
+                sessionInDb.StatisticsId = session.StatisticsId;
                 sessionInDb.ApplicationUserId = System.Web.HttpContext.Current.User.Identity.GetUserId();
             }
 
